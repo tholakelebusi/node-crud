@@ -1,3 +1,5 @@
+const Todo = require("../model/Todo");
+
 const getTodos = (req, res) => {
   res.send("I am the get todos route");
 };

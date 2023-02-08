@@ -62,9 +62,14 @@ router.put("/todos/:todoID", updateTodo)
         );
       };
       
-      router.delete("/todos/:todoID", deleteTodo);
+      router.delete("/todos/:todoID", deleteTodo)
 {
-
+    const deleteTodo = (req, res) => {
+        Todo.deleteOne({ _id: req.params.todoID })
+          .then(() => res.json({ message: "Todo Deleted" }))
+          .catch((err) => res.send(err));
+      };
+      
 }
 }
 
