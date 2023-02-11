@@ -1,8 +1,16 @@
 const Todo = require("../model/Todo");
 
-const getTodos = (req, res) => {
-  res.send("I am the get todos route");
-};
+
+  const getTodos = (req, res) => {
+    Todo.find((err, todos) => {
+      if (err) {
+        res.send(err);
+      }
+      res.json(todos);
+    });
+  };
+  
+
 
 
   const createTodo = (req, res) => {
